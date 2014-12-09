@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="org.mindlinks.HibernateDAO">
+	<class name="org.mindlinks.Bean.Payment" table="Payment">
+		<id name="paymentId" type="int" column="PaymentID">
+			<generator class="increment"></generator>
+		</id>
+
+		<property name="profileId" type="Profile" column="ProfileID"></property>
+		<property name="amount" type="double" column="Amount"></property>
+		<property name="paymentDate" type="Date" column="PaymentDate"></property>
+		<property name="transactionId" type="int" column="TransactionID"></property>
+		<property name="paymentStatus" type="String" column="PaymentStatus"></property>
+		<property name="createdDate" type="Date" column="CreatedDate"></property>
+		<property name="lastModifiedDate" type="Date" column="LastModifiedDate"></property>
+
+
+	</class>
+</hibernate-mapping>

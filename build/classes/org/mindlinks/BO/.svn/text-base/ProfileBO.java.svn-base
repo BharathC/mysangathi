@@ -1,0 +1,229 @@
+package org.mindlinks.BO;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+
+import org.apache.commons.httpclient.HttpException;
+import org.apache.log4j.Logger;
+import org.apache.struts2.dispatcher.SessionMap;
+import org.hibernate.mapping.Map;
+import org.mindlinks.BS.ProfileBS;
+import org.mindlinks.Bean.Profile;
+import org.mindlinks.HibernateDAO.ProfileDAO;
+
+import com.opensymphony.xwork2.ActionContext;
+
+public class ProfileBO
+{
+	private static final Logger logger = Logger.getLogger(ProfileBO.class);
+	public Boolean createProfile(Profile profile)
+	{
+		logger.info("ENTER::THE CREATE PROFILE  BO METHOD");
+
+		ProfileDAO profileclient = new ProfileDAO();
+		Boolean registerstatus = profileclient.createProfile(profile);
+		logger.info("EXIT::THE CREATE PROFILE METHOD");
+		return registerstatus;
+	}
+
+	public boolean subscribe(String username, String url, String temppassword)
+	{
+		logger.info("ENTER::THE SUBSCRIBE  BO METHOD");
+		ProfileDAO profileclient = new ProfileDAO();
+		boolean subscribedflag = profileclient.subscribe(username, url, temppassword);
+		System.out.println("subscribedfalg inside BO AFTER subscrption" + subscribedflag);
+		logger.info("EXIT::THE SUBSCRIBE METHOD");
+		return true;
+
+	}
+
+	public Profile updateProfile(Profile profile)
+	{
+		logger.info("ENTER::THE UPDATE PROFILE BO METHOD");
+		Profile profile1 = null;
+		ProfileDAO profileclient = new ProfileDAO();
+		System.out.println("Inside profile BO --- date of birth is " + profile.getDateofbirth());
+		// DateMidnight birthdate = new DateMidnight(1970, 1, 20);
+		// DateTime now = new DateTime();
+		// String age = Years.yearsBetween(birthdate, now);
+		profile1 = profileclient.updateProfile(profile);
+		logger.info("EXIT::THE UPDATE PROFILE BO METHOD");
+		return profile1;
+	}
+
+	public Profile getProfileById(int profileid)
+	{
+		logger.info("ENTER::THE GET PHOTO BO METHOD");
+		Profile profile = new Profile();
+		ProfileDAO profileclient = new ProfileDAO();
+		profile = profileclient.getProfileById(profileid);
+		logger.info("EXIT::THE GET PHOTO BO METHOD");
+		return profile;
+
+	}
+
+	public ArrayList<Profile> searchProfiles(Profile profile)
+	{
+		logger.info("ENTER::THE SEARCH PROFILE BO METHOD");
+		ArrayList<Profile> profiles1 =null;
+		ArrayList<Profile> profiles = new ArrayList<Profile>();
+		ProfileDAO profileclient = new ProfileDAO();
+		//System.out.println("Country is   " + profile.getCountry());
+		System.out.println("Religion is   " + profile.getReligion());
+		//System.out.println("State  is      " + profile.getState());
+		System.out.println("Caste is       " + profile.getCaste());
+		//System.out.println("Mother Tongue is " + profile.getMothertongue());
+		System.out.println("From age is       " + profile.getFromage());
+		System.out.println("To age is       " + profile.getToage());
+		String querystring = "religion:" + profile.getReligion() + " AND caste:" + profile.getCaste() + " AND gender:" + profile.getGender() + "  AND age:[" + profile.getFromage() + " TO "
+				+ profile.getToage() + "]";
+		System.out.println("QueryString in BO to Search Profiles is  " + querystring);
+		
+		
+		profiles1 = profileclient.searchProfiles(profile, querystring);
+		
+		SessionMap session = (SessionMap) ActionContext.getContext().get("session");
+		Profile temp =(Profile) session.get("myprofile");
+		//System.out.println("--------------is admin is --------"+profile9.getIsadmin());
+		//System.out.println("--------------firstname is  is --------"+profile9.getFirstname());
+		if(profiles1 != null)
+		{
+		for (Profile prof : profiles1)
+		{
+			//System.out.println("--------------inside for --------"+profile9.getIsadmin());
+			if(temp.getIsadmin().equals("true"))
+			{
+				//System.out.println("********************inside admin------------");
+				
+				 profiles.add(prof);
+				
+			}
+			else if (!prof.getInactive().equals("1"))
+			{
+				//System.out.println("++++++In Side Active Profile++++++++++++++");
+				
+				
+				 profiles.add(prof);
+				
+			}
+			logger.info("EXITE::THE SEARCH PROFILE  METHOD");
+		}
+		}
+		return profiles;
+	}
+
+	public ArrayList<Profile> searchByNameProfiles(Profile profile)
+	{
+		logger.info("ENTER::THE SEARCH BY NAME PROFILE PROFILE METHOD");
+		ArrayList<Profile> profiles = null;
+		ArrayList<Profile> profiles1 = new ArrayList<Profile>();
+		ProfileDAO profileclient = new ProfileDAO();
+		//System.out.println("Name is   " + profile.getName());
+
+		String querystring = "name:" + profile.getName();
+		System.out.println("QueryString in BO to Search Profiles is  " + querystring);
+		profiles = profileclient.searchByNameProfiles(profile, querystring);
+		SessionMap session = (SessionMap) ActionContext.getContext().get("session");
+		Profile temp =(Profile) session.get("myprofile");
+		if(profiles != null)
+		{
+		
+		for (Profile prof : profiles)
+		{
+			//checking only the admin will get the acticve and inactive profile
+			if(temp.getIsadmin().equals("true"))
+			{
+				//System.out.println("********************inside admin------------");
+				profiles1.add(prof);
+			}
+			//checking the normal user not get the inactive user when serarching.
+			else if (prof.getInactive().equals("0"))
+			{
+				profiles1.add(prof);
+			}
+		}
+		}
+		logger.info("EXTI::THE SEARCH BY NAME PROFILE PROFILE METHOD");
+		return profiles1;
+	}
+
+	public Profile setpaymentdata(Profile profile)
+	{
+		logger.info("ENTER::THE SET PAYMENT DATA PROFILE METHOD");
+		Profile profile1 = null;
+		Boolean transstatus;
+		ProfileDAO profileclient = new ProfileDAO();
+		profile1 = profileclient.setpaymentdata(profile);
+		logger.info("EXIT::THE SET PAYMENT DATA PROFILE METHOD");
+		return profile1;
+	}
+
+	public Profile uploadProfile(Profile profile)
+	{
+		logger.info("ENTER::THE UPLOAD PROFILE METHOD");
+		Profile profile1 = null;
+		ProfileDAO profileclient = new ProfileDAO();
+		profile1 = profileclient.uploadProfile(profile);
+		logger.info("EXIT::THE UPLOAD PROFILE METHOD");
+		return profile1;
+	}
+
+	public String getPhotoPathFromProfile(int profileId)
+	{
+		logger.info("ENTER::THE GET PHOTO PATH FROM  PROFILE METHOD BO");
+		String photopath = null;
+		Profile profile = new Profile();
+		ProfileDAO profileclient = new ProfileDAO();
+		photopath = profileclient.getPhotoPathFromProfile(profileId);
+		System.out.println(photopath);
+		logger.info("EXIT::THE GET PHOTO PATH FROM  PROFILE METHOD BO");
+		return photopath;
+
+	}
+	
+	public String getHoroscopeFromProfile(int profileId)
+	{
+		logger.info("ENTER::THE GET HOROSCOPE  FROM  PROFILE METHOD GET HOROSCOPE BO");
+		String horoscopepath=null;
+		Profile  profile=new Profile();
+		ProfileDAO profileclient=new ProfileDAO();
+		horoscopepath = profileclient.getHoroscopeFromProfile(profileId);
+		//System.out.println("horoscope==BO========="+horoscopepath);
+		logger.info("EXIT::THE THE GET HOROSCOPE  FROM PROFILE METHOD RETURN HOROSCOPE PATH");
+		return horoscopepath;
+		
+	}
+	
+	
+	public boolean changeProfileStatus(int profileid , String inactive){
+		boolean flag;
+		logger.info("ENTER::THE INTRESTED PROFILE MESSAGE BO METHOD");
+		ProfileDAO profileclient=new ProfileDAO();
+		flag=profileclient.changeProfileStatus(profileid ,inactive);
+		logger.info("EXIT::THE INTRESTED PROFILE MESSAGE BO METHOD");
+		
+		return flag;
+	}
+	
+	public String checkTheUserIsActiveOrInactive(String username)
+	{
+		logger.info("ENTER::THE CHECK THE USER IS ACTIVE OR INACTIVE METHOD PROFILE BO");
+		String stauts=null;
+		ProfileBS   profilebs=new ProfileBS();
+		stauts=profilebs.checkUserIsActiveOrInactive(username);
+		logger.info("EXIT::THE CHECK THE USER IS ACTIVE OR INACTIVE METHOD PROFILE BO");
+		return stauts;
+		
+	}
+	
+	public void toConvertMysangathiUserToLeads(Profile  profile) throws HttpException, IOException, ServletException, ParseException
+	{
+		ProfileDAO  profiledao=new ProfileDAO();
+		
+		profiledao.toConvertMysangathiUserToLeads(profile);
+	}
+	
+}

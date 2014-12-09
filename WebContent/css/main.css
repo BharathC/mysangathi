@@ -1,0 +1,233 @@
+/* CSS Document */
+
+body{
+	background-color:#ffffff;
+	margin-top:10px;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+
+
+}
+#main{
+	width:1000px;
+	padding:0px;
+	margin:0 auto;
+	display:block;
+	background-color:#ffffff;
+}
+#banner{
+	width:760px;
+	padding:0px;
+	font-size:0px;
+	line-height:0px;
+	text-align:left;
+	float:left;
+
+}
+.logo{
+	width:329px;
+	height:146px;
+	line-height:0px;
+	font-size:0px;
+	padding:0px;
+	float:left;
+	text-align:left;
+
+}
+.leftnav{
+	width:200px;
+	padding:0px;
+	float:left;
+	background-color:#bdeec7;
+}
+.leftnavtext{
+	color:#000000;
+	text-align:left;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	padding:0px 5px 0px 5px;
+}
+#toplinks{
+	width:215px;
+	height:18px;
+	padding:170px 25px 0px 0px;
+	font-size:12px;
+	text-align:right;
+	background-image:url(../images/banner-right-img.jpg);
+	float:right;
+	color:#000000;
+}
+#toplinks a:link{
+	font-size:12px;
+	text-align:right;
+	color:#ffffff;
+}
+#toplinks a:visited{
+	font-size:12px;
+	text-align:right;
+	color:#ffffff;
+}
+#toplinks a:hover{
+	font-size:12px;
+	text-align:right;
+	color:#006633;
+}
+
+.topimg{
+	background-color:#ffeebc;
+	width:955px;
+
+}
+.management{
+	padding:0px 75px 0px 0px;
+	text-align:left;
+	float:right;
+}
+#containerdiv{
+	width:990px;
+	background:#ffffff url(../images/content-bg.jpg) repeat-x top left;
+	padding:0px 5px 0px 5px;
+	font-size:11px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	display:block;
+	line-height:1.6em;
+	
+}
+#block{
+	width:1000px;
+	padding:0px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+#containerrightnav{
+	width:790px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	padding:0px 5px 0px 5px;
+	float:right;
+	text-align:justify;
+	line-height:1.6em;
+}
+.contentinnerleft{
+	width:370px;
+	padding:0px 0px 0px 0px;
+	float:left;
+	text-align:left;
+	background-color:#bdeec7;
+}
+.contentinnerright{
+	width:370px;
+	padding:0px 0px 0px 0px;
+ float:right;
+text-align:left;
+	background-color:#bdeec7;
+}
+#footer{
+	width:990px;
+	height:40px;
+	background-image:url(../images/bottom.jpg);
+	padding:5px 5px 5px 5px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FFFFFF;
+	text-align:center;
+}
+#footer a:link{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+}
+#footer a:visited{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+}
+#footer a:hover{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#000000;
+}
+
+
+.clearfloat{
+	clear:both;
+}
+.email{
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.email a:link{
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.email a:visited{
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.email a:hover{
+	color:#009900;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.redstar{
+	color:#FF0000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.elem_button{
+	width:70px;
+	color:#FFFFFF;
+	background-color:#0099FF;
+}
+
+.elem_textbox{
+	width:150px;
+	background-color:#FFFFFF;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+
+.elem_paragraph{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-style:normal;
+}
+
+.elem_dropdown{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	width:150px;
+}
+.elem_smalldropdown{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:100px;
+}
+
+.elem_fileupload{
+	width:250px;
+	color:#0099FF;
+	background-color:#FFFFFF;
+}
+.button_submit{
+	color:#0000FF;
+	width:100px;
+}
+
+#dhtmltooltip{
+position: absolute;
+width: 150px;
+border: 2px solid black;
+padding: 2px;
+background-color: lightyellow;
+visibility: hidden;
+z-index: 100;
+/*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}

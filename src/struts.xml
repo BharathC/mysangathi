@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  
+<constant name="struts.devMode" value="true" />
+<constant name="struts.multipart.maxSize" value="10491754" />
+
+<!--  <constant name="struts.multipart.saveDir" value="D://Mysangathi_Production_Genuine/mysangathi/WebContent/Uploads/Photo/" />-->
+<constant name="struts.multipart.saveDir" value="E://workspace MS/mysangathi/WebContent/Uploads/Photo/" />
+	<package name="default" namespace="/" extends="struts-default">
+
+        
+ 
+  
+     <action name="AboutUsAction" class="org.mindlinks.Actionclasses.AboutUsAction">
+		 <result name="SUCCESS">UI/Aboutus.jsp</result> 
+		
+	 </action>
+		 
+     <action name="Payment" class="org.mindlinks.Actionclasses.Payment">
+     <result name="SUCCESS">UI/paymentsuccess.jsp</result>
+     </action>
+     
+     
+		 <action name="LoginAction" class="org.mindlinks.Actionclasses.LoginAction">	 
+		   <result name="input">UI/Index.jsp</result>
+		    <result name="error">UI/Index.jsp</result> 
+             <result name="session">UI/Index.jsp</result>
+			<result name="SUCCESS">UI/MyProfile.jsp</result> 
+		</action>
+		
+		
+		 
+		 <action name="LogoutAction" class="org.mindlinks.Actionclasses.LogoutAction" >
+		 <result name="SUCCESS">UI/Index.jsp</result> 
+		 </action>
+
+		<action name="ProfileAction" class="org.mindlinks.Actionclasses.ProfileAction" >
+
+			 <result name="input">UI/Index.jsp</result> 
+			 <result name="session">UI/Index.jsp</result>
+			 <result name="SUCCESS">UI/registersuccess.jsp</result> 
+			 
+		</action>
+		
+      <action name="UniqueEmailAction" class="org.mindlinks.Actionclasses.UniqueEmailAction" method="execute">
+           <result name="success">UI/Unique.jsp</result>
+         <result name="error">UI/Duplicate.jsp</result>
+	  </action>
+		
+		
+		<action name="ChangeAction" class="org.mindlinks.Actionclasses.ChangeAction" >
+		     <result name="SUCCESS">UI/Registerprofile.jsp</result>
+			 <result name="input">UI/Subchangepassword.jsp</result>
+		</action>
+		
+			<action name="LoadChangePasswordAction" class="org.mindlinks.Actionclasses.LoadChangePasswordAction">
+		<result name="SUCCESS">UI/ChangePassword.jsp</result>
+		<result name= "INPUT">UI/ChangePassword.jsp</result>
+		</action>
+		
+		<action name="CheckChangePasswordUserNameAndPasswordAction" class="org.mindlinks.Actionclasses.CheckChangePasswordUserNameAndPasswordAction">
+		<result name="SUCCESS">UI/PasswordMatches.jsp</result>
+		<result name="ERROR">UI/PasswordNotMatches.jsp</result>
+		</action>
+		<!-- 
+				<action name="CheckpasswordAction" class="org.mindlinks.Actionclasses.CheckpasswordAction">
+		<result name="SUCCESS">UI/PasswordMatches.jsp</result>
+		<result name="input">UI/PasswordNotMatches.jsp</result>
+		</action>
+		-->
+		
+		<action name="ChangePasswordAction" class="org.mindlinks.Actionclasses.ChangePasswordAction">
+		  
+		  <result name="SUCCESS">UI/MyProfile.jsp</result>
+		  <result name="input">UI/ChangePassword.jsp</result>
+		</action>
+		
+		<action name="ProfileupdateAction" class="org.mindlinks.Actionclasses.ProfileupdateAction" >
+		
+		 	<interceptor-ref name="fileUpload">
+				<param name="maximumSize">10485760</param>
+				
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg,application/docx,image/pjpeg,application/pdf,application/msword,application/octet-stream,text/plain,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/mspowerpoint,
+					application/vnd.ms-excel,application/vnd.ms-word.document,application/vnd.openxmlformats, application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	  			 </param>
+	  			
+			</interceptor-ref>
+			<!--
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+				 
+		  <result name="input">UI/UpdateProfile.jsp</result>  -->	
+		     <result name="input">UI/UpdateProfile.jsp</result> 
+			 <result name="session">UI/Registerprofile.jsp</result>
+			 <result name="SUCCESS">UI/MyProfile.jsp</result> 
+		</action>
+		
+		<action name="ProfileviewAction" class="org.mindlinks.Actionclasses.ProfileviewAction" >
+		 <result name="input">UI/MyProfile.jsp</result>
+		 <result name="error">UI/MyProfile.jsp</result>
+		 <result name="session">UI/Registerprofile.jsp</result> 
+		 <result name="SUCCESS">UI/ViewProfile.jsp</result> 
+		</action>
+		 
+		 
+		<action name="ClientCallAction" class="org.mindlinks.Actionclasses.ClientCallAction" >
+		 <result name="SUCCESS">UI/ClientProfileView.jsp</result> 
+		  <result name="REDIRECT">UI/ClientLogin.jsp</result> 
+		</action>
+		
+		<action name="ClientLoginAction" class="org.mindlinks.Actionclasses.ClientLoginAction" >
+	    <result name="error">UI/ClientLogin.jsp</result> 
+		<result name="SUCCESS">UI/ClientLoginViewProfile.jsp</result> 
+		
+		</action>
+	
+		
+		
+		<action name="MatchMakingProfile"  class="org.mindlinks.Actionclasses.MatchMakingProfilesAction">
+		
+		<result name="SUCCESS">UI/MatchMakingProfile.jsp</result>
+		</action>
+		
+		 <action name="MatchMakingProfileSaveAction" class="org.mindlinks.Actionclasses.MatchMakingProfileSaveAction">
+		
+		<result name="SUCCESS">UI/MyProfile.jsp</result>
+		</action>
+		
+		<action name="UpdateProfileAction" class="org.mindlinks.Actionclasses.UpdateProfileAction" >
+	
+		 <result name="error">UI/MyProfile.jsp</result> 
+		 <result name="session">UI/Registerprofile.jsp</result>
+		 <result name="SUCCESS">UI/UpdateProfile.jsp</result> 
+		
+		 	<interceptor-ref name="fileUpload">
+				<param name="maximumSize">10485760</param>
+				<param name="allowedTypes">
+				
+					image/png,image/gif,image/jpeg,application/docx,image/pjpeg,application/pdf,application/msword,application/octet-stream,text/plain,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/mspowerpoint,
+					application/vnd.ms-excel,application/vnd.ms-word.document,application/vnd.openxmlformats, application/vnd.openxmlformats-officedocument.wordprocessingml.document	
+					 </param>
+	  			  
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		 <!-- 
+		 
+		 	<interceptor-ref name="fileUpload">
+				<param name="maximumSize">1048576</param>
+				
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		-->
+		</action>
+		<action name="SearchAction" class="org.mindlinks.Actionclasses.SearchAction" >
+		
+		 <result name="error">UI/MyProfile.jsp</result> 
+		 <result name="session">UI/Registerprofile.jsp</result>
+		 <result name="SUCCESS">UI/ProfilesSearchResult.jsp</result> 
+		  <result name="SEARCH">UI/ProfilesSearchResult.jsp</result> 
+		</action>
+		
+		<action name="SearchByNameAction" class="org.mindlinks.Actionclasses.SearchByNameAction">
+			 <result name="input">UI/MyProfile.jsp</result> 
+			 <result name="error">UI/MyProfile.jsp</result> 
+			<result name="session">UI/Index.jsp</result>
+			<result name="SUCCESS">UI/ProfileSearchByName.jsp</result>
+			
+		</action>
+		
+		<action name="AdminPaymentAction" class="org.mindlinks.Actionclasses.AdminPaymentAction" >
+
+		 <result name="SUCCESS">UI/ViewProfile.jsp</result> 
+		 <result name="session">UI/Registerprofile.jsp</result>
+		 <result name="input">UI/Betapage.jsp</result> 
+	
+		</action>
+		
+		
+		<action name="SearchUpdateProfileAction" class="org.mindlinks.Actionclasses.SearchUpdateProfileAction" >
+	     <result name="input">UI/MyProfile.jsp</result> 
+		 <result name="error">UI/MyProfile.jsp</result> 
+		 <result name="session">UI/Registerprofile.jsp</result>
+		 <result name="SUCCESS">UI/AdminUpdateProfile.jsp</result> 
+		</action>
+		
+		<action name="AdminUpdateAction" class="org.mindlinks.Actionclasses.AdminUpdateAction" method="execute">
+		<!--  <interceptor-ref name="fileUpload">
+				<param name="maximumSize">1048576</param>
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg,image/pjpeg,application/pdf,application/msword
+       			 </param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>-->
+		<!--
+		<interceptor-ref name="basicStack"/>
+       				 <interceptor-ref name="fileUpload">
+            				<param name="maximumSize">10240000</param>
+       				 </interceptor-ref> 
+        		<interceptor-ref name="validation"/>
+       						 <interceptor-ref name="workflow"/>
+		
+		
+ 		 -->
+ 		 
+		 	<interceptor-ref name="fileUpload">
+				<param name="maximumSize">10485760</param>
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg,application/docx,image/pjpeg,application/pdf,application/msword,application/octet-stream,text/plain,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/mspowerpoint,
+					application/vnd.ms-excel,application/vnd.ms-word.document,application/vnd.openxmlformats, application/vnd.openxmlformats-officedocument.wordprocessingml.document		
+				 </param>
+	  			  
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+ 		 <result name="input">UI/AdminUpdateProfile.jsp</result> 
+		 <result name="session">UI/Registerprofile.jsp</result>
+		 <result name="SUCCESS">UI/MyProfile.jsp
+		 </result> 
+		 
+		
+		</action>
+				
+		<action name="PreUploadProfileAction" class="org.mindlinks.Actionclasses.PreUploadProfileAction" method="execute">
+ 		 <result name="SUCCESS">UI/UploadProfile.jsp</result> 
+		</action>
+		
+		<action name="UploadProfileAction" class="org.mindlinks.Actionclasses.UploadProfileAction" method="execute">
+ 
+		 <result name="input">UI/UploadProfile.jsp</result> 
+		 <result name="session">UI/Registerprofile.jsp</result>
+		 
+		 <result name="SUCCESS">UI/MyProfile.jsp</result> 
+		</action>
+		
+		
+		
+		<action name="InterestProfileAction" class="org.mindlinks.Actionclasses.InterestProfileAction" method="execute">
+           <result name="success">UI/Interestedsuccess.jsp</result>
+          <result name="error">UI/Interestedfailure.jsp</result>
+		 </action>
+		
+		 <action name="MyProfileAction" class="org.mindlinks.Actionclasses.MyProfileAction" method="execute">
+		 		<result name="SUCCESS">UI/MyProfile.jsp</result> 
+		 </action>
+		 
+		 <action name="DisplayImageAction" class="org.mindlinks.Actionclasses.DisplayImageAction" method="execute">
+		 <result name="input">UI/ProfileSearchResults.jsp</result> 
+		 <result name="SUCCESS">UI/Photopopup.jsp</result> 
+		 
+		 </action>
+		 <action name="DisplayInterestedProfilesAction" class="org.mindlinks.Actionclasses.DisplayInterestedProfilesAction" method="execute">
+		 <result name="input">UI/MyProfile.jsp</result> 
+		 <result name="SUCCESS">UI/InterestedProfilespopup.jsp</result> 
+		 
+		 </action>
+		 <action name="DisplayHoroscopeAction" class="org.mindlinks.Actionclasses.DisplayHoroscopeAction">
+		  <result name="SUCCESS">UI/Horoscopepopup.jsp</result> 
+		 
+		 </action>
+		  <action name="ProfileStatusAction" class="org.mindlinks.Actionclasses.ProfileStatusAction">
+		  <result name="SUCCESS">UI/ViewProfile.jsp</result> 
+		  <result name="input">UI/ViewProfile.jsp</result> 
+		 
+		 </action>
+		 
+		 
+		 <action name="LoadForgotPasswordAction" class="org.mindlinks.Actionclasses.LoadForgotPasswordAction">
+			<result name="SUCCESS">UI/forgotpassword.jsp</result>
+		 </action>
+		
+		
+		  <action name="CheckForgotPasswordUsernameAction" class="org.mindlinks.Actionclasses.CheckForgotPasswordUsernameAction"  method="execute" >
+		  <result name="ERROR">UI/Statuserror.jsp</result> 
+		 <result name="SUCCESS">UI/StatusSuccess.jsp</result>
+		 </action>
+		 
+		 
+		<action name="ForgotPasswordAction" class="org.mindlinks.Actionclasses.ForgotPasswordAction">
+		  <result name="SUCCESS">UI/ForGotPasswordSuccess.jsp</result>
+		  <result name="input">UI/forgotpassword.jsp</result> 
+		  <result name="ERROR">UI/Statuserror.jsp</result> 
+		  
+		</action> 
+		  
+		<action name="ForgotChangePasswordAction" class="org.mindlinks.Actionclasses.ForgotChangePasswordAction">
+		  
+		  <result name="SUCCESS">UI/Registerprofile.jsp</result>
+		  <result name="input">UI/forgotpassword.jsp</result> 
+		   <result name="ERROR">UI/Statuserror.jsp</result> 
+		</action>
+		<!-- 
+		 new mapping added javed 03-04-13
+		  
+		 -->
+		 <action name="AdminMessageAction" class="org.mindlinks.Actionclasses.AdminMessageAction" method="execute">
+		 <result name="SUCCESS">UI/AdminAction.jsp</result> 
+		 </action>
+		 <action name="AdminMessageSaveAction" class="org.mindlinks.Actionclasses.AdminMessageSaveAction">
+		 <result name="SUCCESS">UI/ViewProfile.jsp</result> 
+		 </action>
+		 <!--
+			The activation url status action
+		-->
+		<action name="ActivationurlStatusAction" class="org.mindlinks.Actionclasses.ActivationurlStatusAction" method="execute">
+		 <result name="input">UI/Myprofile.jsp</result> 
+		 <result name="ERROR">UI/Statuserror.jsp</result> 
+		  <result name="ACTIVATED">UI/StatusActivated.jsp</result> 
+		   <result name="SUCCESS">UI/StatusSuccess.jsp</result>
+		 </action>
+		 
+		 <action name="MiscPaymentAction" class="org.mindlinks.Actionclasses.MiscPaymentAction" method="execute">
+		 	<result name="SUCCESS">UI/MiscPayment.jsp</result>
+		 </action>
+		 
+		 <action name="GenerateMiscPayment" class="org.mindlinks.Actionclasses.MiscPaymentAction" method="genMiscPay">
+		 	<result name="SUCCESS">UI/MyProfile.jsp</result>
+		 </action>
+		 
+		 <!--
+		 	The check the user is activate and inactive 		
+		-->
+		
+		<!-- <action name="CheckTheLoginUserIsActiveOrInactive" class="org.mindlinks.Actionclasses.CheckTheLoginUserIsActiveOrInactive">
+		<result name="ERROR">UI/UserSuccessActive.jsp</result>
+		<result name="SUCCESS">UI/UserErrorInactive.jsp</result>
+		</action>-->
+		
+		<!-- <action name="ActivationurlAction" class="org.mindlinks.Actionclasses.UserAction" method="execute">
+			 <result name="input">UI/subscribe_changepassword.jsp</result> 
+			 <result name="SUCCESS">UI/subscribe_changepassword.jsp</result> 
+		</action> -->
+
+		<!-- <action name="AccountAction" class="org.MindLinks.ActionClasses.AccountAction"> 
+			<result name="SUCCESS">UI/success.jsp</result> <result name="input">Login.jsp</result> 
+			</action> <action name="SearchAction" class="org.MindLinks.ActionClasses.SearchAction"> 
+			<result name="SUCCESS">UI/SearchResult.jsp</result> <result name="input">Searchpage.jsp</result> 
+			</action> -->
+			
+</package>	
+</struts>
+	

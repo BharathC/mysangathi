@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="org.mindlinks.HibernateDAO">
+	<class name="org.mindlinks.Bean.NotificationHistory" table="notificationhistory">
+		<id name="notificationhistoryid" type="int" column="notifictionID">
+			<generator class="increment"></generator>
+		</id>
+
+		<property name="notificationsubject" type="String" column="notificationsubject"></property>
+		<property name="notificationboy" type="String" column="notificationboy"></property>
+		<property name="senddate" column="sendDate"></property>
+		<property name="notificationid" column="notificationID"></property>
+		<property name="sender" type="string" column="sender"></property>
+
+		</class>
+</hibernate-mapping>

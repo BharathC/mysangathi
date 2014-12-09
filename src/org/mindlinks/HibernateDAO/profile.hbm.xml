@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="org.mindlinks.HibernateDAO">
+	<class name="org.mindlinks.Bean.Profile" table="profile">
+		<id name="profileid" type="int" column="ProfileID">
+			<generator class="increment"></generator>
+		</id>
+
+		<property name="firstname" type="string" column="FirstName"></property>
+		<property name="middlename" type="string" column="MiddleName"></property>
+		<property name="lastname" type="string" column="LastName"></property>
+		<property name="gender" type="string" column="Gender"></property>
+		<property name="age" type="int" column="Age"></property>
+		<property name="dateofbirth" column="DateOfBirth"></property>
+		<property name="religion" type="string" column="Religion"></property>
+		<property name="caste" type="string" column="Caste"></property>
+		<property name="subcaste" type="string" column="SubCaste"></property>
+		<property name="mothertongue" type="string" column="MotherTongue"></property>
+		<property name="workplace" type="string" column="WorkPlace"></property>
+		<property name="currentworkstatus" type="string" column="CurrentWorkStatus"></property>
+		<property name="photo" type="string" column="Photo"></property>
+		<property name="photouploadeddate" column="Photo_UploadedDate"></property>
+		<property name="profilecreateddate" column="CreatedDate"></property>
+		<property name="lastmodifieddate" column="LastModifiedDate"></property>
+		<property name="createdby" type="string" column="CreatedBy"></property>
+		<property name="lastmodifiedby" type="string" column="LastModifiedBy"></property>
+		<property name="email" type="string" column="Email"></property>
+		<property name="countrylivingin" type="string" column="CountryLivingIn"></property>
+		<property name="mobileno" type="string" column="MobileNo"></property>
+		<property name="phoneno" type="string" column="PhoneNo"></property>
+		<property name="username" type="string" column="UserName"></property>
+		<property name="rashi" type="string" column="Rashi"></property>
+		<property name="nakshatra" type="string" column="Nakshatra"></property>
+		<property name="education" type="string" column="Education"></property>
+		<property name="country" type="string" column="Country"></property>
+		<property name="state" type="string" column="State"></property>
+		<property name="city" type="string" column="City"></property>
+		<property name="martialstatus" type="string" column="MartialStatus"></property>
+		<property name="companyname" type="string" column="CompanyName"></property>
+		<property name="companyno" type="string" column="CompanyNo"></property>
+		<property name="hobbies" type="string" column="Hobbies"></property>
+		<property name="interests" type="string" column="Interests"></property>
+		<property name="annualincome" type="string" column="AnnualIncome"></property>
+		<property name="aboutyourSelf" type="string" column="AboutYourSelf"></property>
+		<property name="logindate" column="Logindate"></property>
+		<property name="lastlogintime" column="LastLoginTime"></property>
+		<property name="profession" type="string" column="Profession"></property>
+		<property name="horoscope" type="string" column="Hororscope"></property>
+		<property name="horoscopeuploadeddate"  column="HoroscopeUploadedDate"></property>
+        <property name="paidstatus"  type="string" column="PaidStatus"></property>
+        <property name="paymentdate"  column="Paymentdate"></property>
+        <property name="comments"  type="string" column="Comments"></property>
+        <property name="isadmin" type="string"  column="IsAdmin"></property>
+       <property name="paymenttype" type="string"  column="PaymentType"></property>
+      <property name="referenceid" type="string"  column="ReferenceID"></property>
+      <property name="profilestatus" type="string"  column="Status"></property> 
+      <property name="residencecountry" type="string"  column="ResidenceCountry"></property> 
+      <property name="residencestd" type="string"  column="ResidenceSTD"></property> 
+      <property name="hfeet" type="int"  column="Feet"></property> 
+      <property name="hinch"   column="Inch"></property> 
+      <property name="name" type="string"  column="Name"></property> 
+       <property name="amountpaid" type="float"  column="AmountPaid"></property>
+  <property name="fathername" type="string"  column="fathername"></property>
+ <property name="fatheroccupation" type="string"  column="fatheroccupation"></property>
+ <property name="mothername" type="string"  column="mothername"></property>
+ <property name="motheroccupation" type="string"  column="motheroccupation"></property>
+ <property name="currency" type="string"  column="Currency"></property>
+ <property name="noofbrothers" type="string"  column="noofbrothers"></property>
+ <property name="noofsisters" type="string"  column="noofsisters"></property>
+   <property name="havechildren" type="string"  column="HaveChildren"></property>
+     <property name="inactive" type="string"  column="Inactive"></property>
+     <property name="mulitipleeducaaiondeatiles" type="string"  column="MultipleEducationDeatiles"></property>
+     <property name="countrycode" type="string"  column="countrycode"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="org.mindlinks.HibernateDAO">
+	<class name="org.mindlinks.Bean.MatchingProfiles" table="matchingprofiles">
+		<id name="matchingprofileid" type="int" column="matchingprofileID">
+			<generator class="increment"></generator>
+		</id>
+
+		<property name="profileid" type="int" column="profileID"></property>
+		<property name="gender" type="string" column="gender"></property>
+		<property name="age" type="int" column="age"></property>
+		<property name="religion" type="string" column="religion"></property>
+		<property name="caste" type="string" column="caste"></property>
+		
+		<property name="education" type="string" column="education"></property>
+		<property name="createddate"  column="createdDate"></property>
+	    <!--  <property name="createdby" type="string" column="createdBy"></property>-->
+		
+		<property name="username" type="string" column="createdBy"></property>
+		 <property name="modifiedDate"  column="modifiedDate"></property>
+		<!-- <property name="sendnotification" type="string" column="sendnotification"></property>-->
+		<property name="fromage"  column="fromage"></property>
+		<property name="toage"  column="toage"></property>
+		<property name="worklocation" column="worklocation"></property>
+		<property name="name" column="name"></property>
+		
+		</class>
+</hibernate-mapping>

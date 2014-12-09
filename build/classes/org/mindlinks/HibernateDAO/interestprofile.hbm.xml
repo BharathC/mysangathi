@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="org.mindlinks.HibernateDAO">
+	<class name="org.mindlinks.Bean.InterestProfile" table="interestprofile">
+		<id name="interestid" type="int" column="InterestID">
+			<generator class="increment"></generator>
+		</id>
+
+		<property name="fromprofileid" type="int" column="FromProfileID"></property>
+		<property name="toprofileid" type="int" column="ToProfileID"></property>
+		<property name="createdby" type="string" column="CreatedBy"></property>
+		<property name="requestdate" column="RequestDate"></property>
+		<property name="message" type="string" column="Message"></property>
+
+		</class>
+</hibernate-mapping>

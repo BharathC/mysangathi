@@ -1,0 +1,87 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+<field name="firstname">
+<field-validator type="requiredstring">
+<message>The Name is required.</message>
+</field-validator>
+</field>
+ 
+<field name="gender">
+<field-validator type="requiredstring">
+<message>You must Choose the Gender</message>
+</field-validator>
+</field>
+
+<field name="religion">
+<field-validator type="requiredstring">
+<message>Religion is required.</message>
+</field-validator>
+</field>
+
+
+<field name="caste">
+<field-validator type="requiredstring">
+<message>Caste is required.</message>
+</field-validator>
+</field>
+
+<field name="mobileno">
+<field-validator type="requiredstring">
+<message>Mobile No is required.</message>
+</field-validator></field>
+
+<field name="mobileno">
+
+<field-validator type="regex">
+<param name="expression">^[0-9]{8,20}$</param>
+<message>Mobile No should contains 8 to 20 numbers.</message>
+</field-validator> 
+</field>
+
+
+
+<field name="email">
+<field-validator type="requiredstring">
+<message>EmailId is required.</message>
+</field-validator>
+<field-validator type="email">
+<message>EmailId is Invalid.</message>
+ </field-validator>
+</field>
+
+
+<field name="education">
+<field-validator type="requiredstring">
+<message>Education is required.</message>
+</field-validator>
+</field>
+
+
+<field name="profession">
+<field-validator type="requiredstring">
+<message>Profession is required.</message>
+</field-validator>
+</field>
+
+<!--  <field name="workplace">
+<field-validator type="requiredstring">
+<message>Work Country is required.</message>
+</field-validator>
+</field>-->
+
+
+<field name="country">
+<field-validator type="requiredstring">
+<message>Country is required.</message>
+</field-validator>
+</field>
+
+
+
+
+
+
+
+
+</validators>
